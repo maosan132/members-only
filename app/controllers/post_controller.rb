@@ -14,6 +14,11 @@ class PostController < ApplicationController
     @post.save
     redirect_to post_path(@post)
   end
+  private
+
+  def post_params
+    params.require(:post).permit(:username, :email, :password)
+  end
 
   
 end
